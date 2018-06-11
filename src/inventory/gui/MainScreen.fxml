@@ -35,6 +35,10 @@
         
         <TextField layoutX="375.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0"/>
         
+        <Button layoutX="200.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Add"/>
+        <Button layoutX="300.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify"/>
+        <Button layoutX="400.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete"/>
+        
         <Label layoutX="525.0" layoutY="90.0" text="Products">
             <font>
                 <Font name="System Bold" size="15.0"/>
@@ -53,6 +57,10 @@
         <Button layoutX="750.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search"/>
         
         <TextField layoutX="885.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0"/>
+        
+        <Button layoutX="700.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Add"/>
+        <Button layoutX="800.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify"/>
+        <Button layoutX="900.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete"/>
         
     </children>
 </AnchorPane>
