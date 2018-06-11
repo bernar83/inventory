@@ -8,12 +8,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.MainScreenController">
     <children>
-        <TableView layoutX="14.0" layoutY="113.0" prefHeight="175.0" prefWidth="500.0">
+        <TableView layoutX="14.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
             <columns>
                 <TableColumn prefWidth="100.0" text="Part ID"/>
                 <TableColumn prefWidth="100.0" text="Part Name"/>
                 <TableColumn prefWidth="125.0" text="Inventory Level"/>
                 <TableColumn prefWidth="175.0" text="Price/Cost per Unit"/>
+            </columns>
+        </TableView>
+        <TableView layoutX="525.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
+            <columns>
+                <TableColumn prefWidth="100.0" text="Product ID"/>
+                <TableColumn prefWidth="100.0" text="Product Name"/>
+                <TableColumn prefWidth="125.0" text="Inventory Level"/>
+                <TableColumn prefWidth="175.0" text="Price per Unit"/>
             </columns>
         </TableView>
     </children>
