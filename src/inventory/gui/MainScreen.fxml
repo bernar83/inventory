@@ -31,6 +31,8 @@
             </columns>
         </TableView>
         
+        <Button layoutX="250.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search"/>
+        
         <Label layoutX="525.0" layoutY="90.0" text="Products">
             <font>
                 <Font name="System Bold" size="15.0"/>
@@ -45,6 +47,8 @@
                 <TableColumn prefWidth="175.0" text="Price per Unit"/>
             </columns>
         </TableView>
+        
+        <Button layoutX="750.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search"/>
         
     </children>
 </AnchorPane>
