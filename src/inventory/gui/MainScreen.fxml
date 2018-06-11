@@ -5,9 +5,17 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.MainScreenController">
     <children>
+        
+        <Label layoutX="14.0" layoutY="90.0" text="Parts">
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Label>
+        
         <TableView layoutX="14.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
             <columns>
                 <TableColumn prefWidth="100.0" text="Part ID"/>
@@ -16,6 +24,13 @@
                 <TableColumn prefWidth="175.0" text="Price/Cost per Unit"/>
             </columns>
         </TableView>
+        
+        <Label layoutX="525.0" layoutY="90.0" text="Products">
+            <font>
+                <Font name="System Bold" size="15.0"/>
+            </font>
+        </Label>
+        
         <TableView layoutX="525.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
             <columns>
                 <TableColumn prefWidth="100.0" text="Product ID"/>
@@ -24,5 +39,6 @@
                 <TableColumn prefWidth="175.0" text="Price per Unit"/>
             </columns>
         </TableView>
+        
     </children>
 </AnchorPane>
