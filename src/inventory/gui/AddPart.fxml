@@ -9,10 +9,15 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController">
     <children>
+        
         <Label layoutX="14.0" layoutY="5.0" text="Add Part">
             <font>
                 <Font name="System Bold" size="20.0"/>
             </font>
         </Label>
+        
+        <RadioButton layoutX="175.0" layoutY="11.0" text="In-House" selected="true"/>
+        <RadioButton layoutX="275.0" layoutY="11.0" text="Outsourced"/>
+        
     </children>
 </AnchorPane>
