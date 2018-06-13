@@ -19,5 +19,20 @@
         <RadioButton layoutX="175.0" layoutY="11.0" text="In-House" selected="true"/>
         <RadioButton layoutX="275.0" layoutY="11.0" text="Outsourced"/>
         
+        <Label layoutX="65.0" layoutY="50.0" text="ID"/>
+        <TextField layoutX="175.0" layoutY="46.0" prefHeight="20.0" prefWidth="150.0"/>
+        
+        <Label layoutX="65.0" layoutY="79.0" text="Name"/>
+        <TextField layoutX="175.0" layoutY="77.0" prefHeight="20.0" prefWidth="150.0"/>
+        
+        <Label layoutX="65.0" layoutY="111.0" text="Inv"/>
+        <TextField layoutX="175.0" layoutY="107.0" prefHeight="20.0" prefWidth="150.0"/>
+        
+        <Label layoutX="65.0" layoutY="141.0" text="Price/Cost"/>
+        <TextField layoutX="175.0" layoutY="137.0" prefHeight="20.0" prefWidth="150.0"/>
+        
+        <Label layoutX="65.0" layoutY="171.0" text="Max"/>
+        <TextField layoutX="175.0" layoutY="167.0" prefHeight="20.0" prefWidth="75.0"/>
+        
     </children>
 </AnchorPane>
