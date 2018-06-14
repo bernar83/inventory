@@ -15,7 +15,13 @@
     </padding>
     
     <Label text="Add Part" 
-        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+           GridPane.columnIndex="0" GridPane.rowIndex="0">
+    
+        <font>
+            <Font name="System Bold" size="22.0"/>
+        </font>
+        
+    </Label>
         
     <RadioButton text="In-House" 
         GridPane.columnIndex="1" GridPane.rowIndex="0"/>
