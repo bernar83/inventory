@@ -30,6 +30,14 @@ public class MainScreenController implements Initializable {
         stage.show();
     }
     
+    @FXML
+    private void openModifyPart(ActionEvent event) throws IOException {
+        Parent loadModify = FXMLLoader.load(getClass().getResource("/inventory/gui/ModifyPart.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loadModify,400,400));
+        stage.show();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
