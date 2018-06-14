@@ -49,6 +49,10 @@
         GridPane.columnIndex="0" GridPane.rowIndex="5"/>
     <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
     
+    <Label text="Min"
+        GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+    <TextField GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+    
     <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button text="Save"/>
         <Button text="Cancel"/>
