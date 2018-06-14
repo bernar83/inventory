@@ -2,37 +2,45 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController">
-    <children>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController" alignment="center" hgap="10" vgap="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Add Part" 
+        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         
-        <Label layoutX="14.0" layoutY="5.0" text="Add Part">
-            <font>
-                <Font name="System Bold" size="20.0"/>
-            </font>
-        </Label>
-        
-        <RadioButton layoutX="175.0" layoutY="11.0" text="In-House" selected="true"/>
-        <RadioButton layoutX="275.0" layoutY="11.0" text="Outsourced"/>
-        
-        <Label layoutX="65.0" layoutY="50.0" text="ID"/>
-        <TextField layoutX="175.0" layoutY="46.0" prefHeight="20.0" prefWidth="150.0"/>
-        
-        <Label layoutX="65.0" layoutY="79.0" text="Name"/>
-        <TextField layoutX="175.0" layoutY="77.0" prefHeight="20.0" prefWidth="150.0"/>
-        
-        <Label layoutX="65.0" layoutY="111.0" text="Inv"/>
-        <TextField layoutX="175.0" layoutY="107.0" prefHeight="20.0" prefWidth="150.0"/>
-        
-        <Label layoutX="65.0" layoutY="141.0" text="Price/Cost"/>
-        <TextField layoutX="175.0" layoutY="137.0" prefHeight="20.0" prefWidth="150.0"/>
-        
-        <Label layoutX="65.0" layoutY="171.0" text="Max"/>
-        <TextField layoutX="175.0" layoutY="167.0" prefHeight="20.0" prefWidth="75.0"/>
-        
-    </children>
-</AnchorPane>
+    <RadioButton text="In-House" 
+        GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    
+    <RadioButton text="Outsourced"
+        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+    <Label text="ID"
+        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Name"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Inv"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label text="Price/Cost"
+        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label text="Max"
+        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    
+</GridPane>
