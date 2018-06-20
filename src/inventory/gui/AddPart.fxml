@@ -9,53 +9,64 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController" alignment="center" hgap="10" vgap="10">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-    
-    <Label text="Add Part" 
-           GridPane.columnIndex="0" GridPane.rowIndex="0">
-    
-        <font>
-            <Font name="System Bold" size="22.0"/>
-        </font>
-        
-    </Label>
-        
-    <RadioButton text="In-House" 
-        GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    
-    <RadioButton text="Outsourced"
-        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
 
-    <Label text="ID"
-        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController" >
+    <top>
+        <GridPane alignment="center" hgap="5" vgap="10" >
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
 
-    <Label text="Name"
-        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <HBox spacing="25" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
+                <Label text="Add Part" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
 
-    <Label text="Inv"
-        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    <font>
+                        <Font name="System Bold" size="22.0"/>
+                    </font>
 
-    <Label text="Price/Cost"
-        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </Label>
 
-    <Label text="Max"
-        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <RadioButton text="In-House" 
+                    GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                <RadioButton text="Outsourced"
+                    GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            </HBox>
+
+        </GridPane>    
+    </top>
     
-    <Label text="Min"
-        GridPane.columnIndex="2" GridPane.rowIndex="5"/>
-    <TextField GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+    <center>
+        <GridPane alignment="CENTER" hgap="5" vgap="5">
+            <padding>
+                <Insets right="25" left="25"/>
+            </padding>
+
+            <VBox GridPane.columnIndex="0" spacing="19">
+                <Label text="ID"/>
+                <Label text="Name"/>
+                <Label text="Inv"/>
+                <Label text="Price/Cost"/>
+                <Label text="Max"/>
+                <Label text="Company Name" prefWidth="200.0"/>
+            </VBox>
+            
+            <VBox GridPane.columnIndex="1" spacing="10">
+                <TextField promptText="Auto Gen - Disable" maxWidth="150.0"/>
+                <TextField promptText="Part Name" maxWidth="150.0"/>
+                <TextField promptText="Inv" maxWidth="150.0"/>
+                <TextField promptText="Price/Cost" maxWidth="150.0"/>
+                <HBox spacing="5">
+                    <TextField promptText="Max"/>
+                    <Label text="Min" prefWidth="70.0"/>
+                    <TextField promptText="Min"/>
+                </HBox>
+                <TextField promptText="Comp Nm" maxWidth="150.0"/>
+            </VBox>
+            
+        </GridPane> 
+    </center>
     
-    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button text="Save"/>
-        <Button text="Cancel"/>
-    </HBox>
-    
-</GridPane>
+</BorderPane>
+
