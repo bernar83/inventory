@@ -11,6 +11,7 @@
 
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController" >
+    
     <padding>
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
@@ -41,7 +42,6 @@
     <center>
         <GridPane alignment="CENTER" hgap="5" vgap="5">
             
-
             <VBox GridPane.columnIndex="0" spacing="19">
                 <Label text="ID"/>
                 <Label text="Name"/>
@@ -52,7 +52,7 @@
             </VBox>
             
             <VBox GridPane.columnIndex="1" spacing="10">
-                <TextField promptText="Auto Gen - Disable" maxWidth="150.0"/>
+                <TextField promptText="Auto Gen - Disable" disable="true" maxWidth="150.0"/>
                 <TextField promptText="Part Name" maxWidth="150.0"/>
                 <TextField promptText="Inv" maxWidth="150.0"/>
                 <TextField promptText="Price/Cost" maxWidth="150.0"/>
