@@ -11,11 +11,12 @@
 
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.AddPartController" >
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
     <top>
         <GridPane alignment="center" hgap="5" vgap="10" >
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
+            
 
             <HBox spacing="25" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
                 <Label text="Add Part" 
@@ -39,9 +40,7 @@
     
     <center>
         <GridPane alignment="CENTER" hgap="5" vgap="5">
-            <padding>
-                <Insets right="25" left="25"/>
-            </padding>
+            
 
             <VBox GridPane.columnIndex="0" spacing="19">
                 <Label text="ID"/>
@@ -67,6 +66,13 @@
             
         </GridPane> 
     </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Save" prefWidth="100.0"/>
+            <Button text="Cancel" prefWidth="100.0"/>
+        </HBox>
+    </bottom>
     
 </BorderPane>
 
