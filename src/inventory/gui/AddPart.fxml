@@ -29,10 +29,10 @@
 
                 </Label>
 
-                <RadioButton text="In-House" 
-                    GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <RadioButton text="In-House" fx:id="addPartInHouseRadio" onAction="#addInHousePart"
+                    GridPane.columnIndex="2" GridPane.rowIndex="0" selected="true"/>
 
-                <RadioButton text="Outsourced"
+                <RadioButton text="Outsourced" fx:id="addPartOutSourcedRadio" onAction="#addOutsourcedPart"
                     GridPane.columnIndex="3" GridPane.rowIndex="0"/>
             </HBox>
 
@@ -48,7 +48,7 @@
                 <Label text="Inv"/>
                 <Label text="Price/Cost"/>
                 <Label text="Max"/>
-                <Label text="Company Name" prefWidth="200.0"/>
+                <Label text="Company Name" prefWidth="300.0" fx:id="addPartLblNmId"/>
             </VBox>
             
             <VBox GridPane.columnIndex="1" spacing="10">
@@ -61,7 +61,7 @@
                     <Label text="Min" prefWidth="70.0"/>
                     <TextField promptText="Min"/>
                 </HBox>
-                <TextField promptText="Comp Nm" maxWidth="150.0"/>
+                <TextField promptText="Comp Nm" maxWidth="150.0" fx:id="addPartFieldNmId"/>
             </VBox>
             
         </GridPane> 
