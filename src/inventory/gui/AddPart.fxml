@@ -58,7 +58,7 @@
                 <TextField promptText="Price/Cost" maxWidth="150.0"/>
                 <HBox spacing="5">
                     <TextField promptText="Max"/>
-                    <Label text="Min" prefWidth="70.0"/>
+                    <Label text="Min" prefWidth="100.0"/>
                     <TextField promptText="Min"/>
                 </HBox>
                 <TextField promptText="Comp Nm" maxWidth="150.0" fx:id="addPartFieldNmId"/>

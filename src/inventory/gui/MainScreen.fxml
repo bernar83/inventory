@@ -62,8 +62,10 @@
         
         <TextField layoutX="885.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0"/>
         
-        <Button layoutX="700.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Add"/>
-        <Button layoutX="800.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify"/>
+        <Button layoutX="700.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" 
+                text="Add" onAction="#openAddProduct"/>
+        <Button layoutX="800.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" 
+                text="Modify" onAction="#openModifyProduct"/>
         <Button layoutX="900.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete"/>
         
         <Button layoutX="900.0" layoutY="375.0" prefHeight="10.0" prefWidth="100.0" text="Exit" 
