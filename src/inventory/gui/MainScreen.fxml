@@ -62,7 +62,8 @@
         <Button layoutX="800.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify"/>
         <Button layoutX="900.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete"/>
         
-        <Button layoutX="900.0" layoutY="375.0" prefHeight="10.0" prefWidth="100.0" text="Exit"/>
+        <Button layoutX="900.0" layoutY="375.0" prefHeight="10.0" prefWidth="100.0" text="Exit" 
+                fx:id="closeMainBtn" onAction="#closeMain"/>
         
     </children>
 </AnchorPane>

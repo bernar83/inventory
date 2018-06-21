@@ -10,9 +10,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -28,6 +30,8 @@ public class AddPartController implements Initializable {
     private Label addPartLblNmId;
     @FXML
     private TextField addPartFieldNmId;
+    @FXML
+    private Button closeAddPartBtn;
     
     @FXML
     private void addInHousePart(ActionEvent event) {
@@ -43,6 +47,12 @@ public class AddPartController implements Initializable {
         addPartInHouseRadio.setSelected(false);
         addPartLblNmId.setText("Machine ID");
         addPartFieldNmId.setPromptText("Mach ID");
+    }
+    
+    @FXML
+    private void closeAddPart(ActionEvent event) {
+        Stage stage = (Stage) closeAddPartBtn.getScene().getWindow();
+        stage.close();
     }
 
     /**

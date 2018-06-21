@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +22,8 @@ import javafx.stage.Stage;
  * @author naber
  */
 public class MainScreenController implements Initializable {
+    @FXML
+    private Button closeMainBtn;
     
     @FXML
     private void openAddPart(ActionEvent event) throws IOException {
@@ -36,6 +39,12 @@ public class MainScreenController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(loadModify,400,400));
         stage.show();
+    }
+    
+    @FXML
+    private void closeMain(ActionEvent event) {
+        Stage stage = (Stage) closeMainBtn.getScene().getWindow();
+        stage.close();
     }
     
     @Override

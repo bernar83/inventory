@@ -58,7 +58,7 @@
                 <TextField maxWidth="150.0"/>
                 <HBox spacing="5">
                     <TextField/>
-                    <Label text="Min" prefWidth="70.0"/>
+                    <Label text="Min" prefWidth="100.0"/>
                     <TextField/>
                 </HBox>
                 <TextField maxWidth="150.0" fx:id="modPartFieldNmId"/>
@@ -70,7 +70,7 @@
     <bottom>
         <HBox spacing="10" alignment="CENTER_RIGHT">
             <Button text="Save" prefWidth="100.0"/>
-            <Button text="Cancel" prefWidth="100.0"/>
+            <Button text="Cancel" prefWidth="100.0" fx:id="closeModPartBtn" onAction="#closeModPart"/>
         </HBox>
     </bottom>
     
