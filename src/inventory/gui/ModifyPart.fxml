@@ -6,11 +6,72 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.ModifyPartController" alignment="center" hgap="10" vgap="10">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.ModifyPartController" >
     
-    <Label text="Modify Part"/>
-</GridPane>
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+    <top>
+        <GridPane alignment="center" hgap="5" vgap="10" >
+            
+
+            <HBox spacing="25" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3">
+                <Label text="Add Part" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+
+                    <font>
+                        <Font name="System Bold" size="22.0"/>
+                    </font>
+
+                </Label>
+
+                <RadioButton text="In-House" fx:id="modPartInHouseRadio" onAction="#modInHousePart"
+                    GridPane.columnIndex="2" GridPane.rowIndex="0" selected="true"/>
+
+                <RadioButton text="Outsourced" fx:id="modPartOutSourcedRadio" onAction="#modOutsourcedPart"
+                    GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            </HBox>
+
+        </GridPane>    
+    </top>
+    
+    <center>
+        <GridPane alignment="CENTER" hgap="5" vgap="5">
+            
+            <VBox GridPane.columnIndex="0" spacing="19">
+                <Label text="ID"/>
+                <Label text="Name"/>
+                <Label text="Inv"/>
+                <Label text="Price/Cost"/>
+                <Label text="Max"/>
+                <Label text="Company Name" prefWidth="300.0" fx:id="modPartLblNmId"/>
+            </VBox>
+            
+            <VBox GridPane.columnIndex="1" spacing="10">
+                <TextField disable="true" maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <HBox spacing="5">
+                    <TextField/>
+                    <Label text="Min" prefWidth="70.0"/>
+                    <TextField/>
+                </HBox>
+                <TextField maxWidth="150.0" fx:id="modPartFieldNmId"/>
+            </VBox>
+            
+        </GridPane> 
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Save" prefWidth="100.0"/>
+            <Button text="Cancel" prefWidth="100.0"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>

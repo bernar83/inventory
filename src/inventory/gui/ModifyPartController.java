@@ -7,7 +7,12 @@ package inventory.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -15,6 +20,26 @@ import javafx.fxml.Initializable;
  * @author naber
  */
 public class ModifyPartController implements Initializable {
+    @FXML
+    private RadioButton modPartOutSourcedRadio;
+    @FXML
+    private RadioButton modPartInHouseRadio;
+    @FXML
+    private Label modPartLblNmId;
+    
+    @FXML
+    private void modInHousePart(ActionEvent event) {
+        modPartOutSourcedRadio.setSelected(false);
+        modPartInHouseRadio.setSelected(true);
+        modPartLblNmId.setText("Company Name");
+    }
+    
+    @FXML
+    private void modOutsourcedPart(ActionEvent event) {
+        modPartOutSourcedRadio.setSelected(true);
+        modPartInHouseRadio.setSelected(false);
+        modPartLblNmId.setText("Machine ID");
+    }
 
     /**
      * Initializes the controller class.
