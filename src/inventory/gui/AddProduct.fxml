@@ -14,27 +14,35 @@
         <Insets top="50" right="50" bottom="50" left="50"/>
     </padding>
     
-    <VBox GridPane.columnIndex="0" spacing="19" prefWidth="60.0">
-        <Label text="ID"/>
-        <Label text="Name"/>
-        <Label text="Inv"/>
-        <Label text="Price/Cost"/>
-        <Label text="Max"/>
-    </VBox>
+    <VBox GridPane.columnIndex="0" spacing="40">
+        <Label text="Add Product"/>
+        
+        <HBox spacing="20">
+            <VBox spacing="19" prefWidth="60.0">
+                <Label text="ID"/>
+                <Label text="Name"/>
+                <Label text="Inv"/>
+                <Label text="Price/Cost"/>
+                <Label text="Max"/>
+            </VBox>
 
-    <VBox GridPane.columnIndex="1" spacing="10">
-        <TextField promptText="Auto Gen - Disable" disable="true" maxWidth="150.0"/>
-        <TextField promptText="Part Name" maxWidth="150.0"/>
-        <TextField promptText="Inv" maxWidth="150.0"/>
-        <TextField promptText="Price/Cost" maxWidth="150.0"/>
-        <HBox spacing="10">
-            <TextField promptText="Max" prefWidth="60.0"/>
-            <Label text="Min" prefWidth="40.0"/>
-            <TextField promptText="Min" prefWidth="60.0"/>
+            <VBox spacing="10">
+                <TextField promptText="Auto Gen - Disable" disable="true" maxWidth="150.0"/>
+                <TextField promptText="Part Name" maxWidth="150.0"/>
+                <TextField promptText="Inv" maxWidth="150.0"/>
+                <TextField promptText="Price/Cost" maxWidth="150.0"/>
+                <HBox spacing="10">
+                    <TextField promptText="Max" prefWidth="60.0"/>
+                    <Label text="Min" prefWidth="40.0"/>
+                    <TextField promptText="Min" prefWidth="60.0"/>
+                </HBox>
+            </VBox>
         </HBox>
     </VBox>
     
-    <VBox GridPane.columnIndex="2">
+    
+    
+    <VBox GridPane.columnIndex="1">
         <HBox>
             <Button text="Search"/>
             <TextField/>
