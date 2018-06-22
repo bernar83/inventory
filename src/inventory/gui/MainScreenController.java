@@ -53,7 +53,7 @@ public class MainScreenController implements Initializable {
     private void openAddProduct(ActionEvent event) throws IOException {
         Parent loadAddProduct = FXMLLoader.load(getClass().getResource("/inventory/gui/AddProduct.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(loadAddProduct,400,400));
+        stage.setScene(new Scene(loadAddProduct));
         stage.show();
     }
     

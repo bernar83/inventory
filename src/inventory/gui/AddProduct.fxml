@@ -14,7 +14,7 @@
         <Insets top="50" right="50" bottom="50" left="50"/>
     </padding>
     
-    <VBox GridPane.columnIndex="0" spacing="19" prefWidth="340.0">
+    <VBox GridPane.columnIndex="0" spacing="19" prefWidth="60.0">
         <Label text="ID"/>
         <Label text="Name"/>
         <Label text="Inv"/>
@@ -27,14 +27,17 @@
         <TextField promptText="Part Name" maxWidth="150.0"/>
         <TextField promptText="Inv" maxWidth="150.0"/>
         <TextField promptText="Price/Cost" maxWidth="150.0"/>
-        <HBox spacing="5">
-            <TextField promptText="Max"/>
-            <Label text="Min" prefWidth="120.0"/>
-            <TextField promptText="Min"/>
+        <HBox spacing="10">
+            <TextField promptText="Max" prefWidth="60.0"/>
+            <Label text="Min" prefWidth="40.0"/>
+            <TextField promptText="Min" prefWidth="60.0"/>
         </HBox>
     </VBox>
     
     <VBox GridPane.columnIndex="2">
-        <Label text="Right"/>
+        <HBox>
+            <Button text="Search"/>
+            <TextField/>
+        </HBox>
     </VBox>
 </GridPane>
