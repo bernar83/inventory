@@ -15,7 +15,11 @@
     </padding>
     
     <VBox GridPane.columnIndex="0" spacing="40">
-        <Label text="Add Product"/>
+        <Label text="Add Product">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+        </Label>
         
         <HBox spacing="20">
             <VBox spacing="19" prefWidth="60.0">
@@ -43,9 +47,11 @@
     
     
     <VBox GridPane.columnIndex="1">
-        <HBox>
+        <HBox spacing="10.0">
             <Button text="Search"/>
             <TextField/>
         </HBox>
+        
+        
     </VBox>
 </GridPane>
