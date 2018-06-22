@@ -45,7 +45,7 @@ public class MainScreenController implements Initializable {
     private void openModifyProduct(ActionEvent event) throws IOException {
         Parent loadModProduct = FXMLLoader.load(getClass().getResource("/inventory/gui/ModifyProduct.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(loadModProduct,400,400));
+        stage.setScene(new Scene(loadModProduct));
         stage.show();
     }
     

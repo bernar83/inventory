@@ -2,10 +2,83 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.gui.ModifyProductController">
-    <Label text="Modify Product"/>
-</AnchorPane>
+<GridPane alignment="center" hgap="50.0" xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="inventory.gui.ModifyProductController">
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+    
+    <VBox GridPane.columnIndex="0" spacing="60">
+        <Label text="Modify Product">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+        </Label>
+        
+        <HBox spacing="20">
+            <VBox spacing="19" prefWidth="60.0">
+                <Label text="ID"/>
+                <Label text="Name"/>
+                <Label text="Inv"/>
+                <Label text="Price/Cost"/>
+                <Label text="Max"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <TextField disable="true" maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <TextField maxWidth="150.0"/>
+                <HBox spacing="10">
+                    <TextField prefWidth="60.0"/>
+                    <Label text="Min" prefWidth="40.0"/>
+                    <TextField prefWidth="60.0"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+    
+    <VBox GridPane.columnIndex="1" spacing="20">
+        <HBox spacing="10.0" alignment="center">
+            <Button text="Search"/>
+            <TextField/>
+        </HBox>
+        
+        <TableView prefHeight="180.0">
+            <columns>
+                <TableColumn text="Part ID" minWidth="150"/>
+                <TableColumn text="Part Name" minWidth="150"/>
+                <TableColumn text="Inventory Level" minWidth="150"/>
+                <TableColumn text="Price Per Unit" minWidth="150"/>
+            </columns>
+        </TableView>
+        
+        <HBox alignment="baseline_right">
+            <Button text="Add"/>
+        </HBox>
+        
+        <TableView prefHeight="180.0">
+            <columns>
+                <TableColumn text="Part ID" minWidth="150"/>
+                <TableColumn text="Part Name" minWidth="150"/>
+                <TableColumn text="Inventory Level" minWidth="150"/>
+                <TableColumn text="Price Per Unit" minWidth="150"/>
+            </columns>
+        </TableView>
+        
+        <HBox alignment="baseline_right">
+            <Button text="Delete"/>
+        </HBox>
+        
+        <HBox alignment="baseline_right" spacing="10">
+            <Button text="Save"/>
+            <Button text="Cancel" fx:id="closeModProductBtn" onAction="#closeModProduct"/>
+        </HBox>
+    </VBox>
+</GridPane>
