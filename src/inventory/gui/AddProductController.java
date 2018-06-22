@@ -7,7 +7,11 @@ package inventory.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -15,6 +19,15 @@ import javafx.fxml.Initializable;
  * @author naber
  */
 public class AddProductController implements Initializable {
+    
+    @FXML
+    private Button closeAddProductBtn;
+    
+    @FXML
+    private void closeAddProduct(ActionEvent event) {
+        Stage stage = (Stage) closeAddProductBtn.getScene().getWindow();
+        stage.close();
+    }
 
     /**
      * Initializes the controller class.

@@ -76,9 +76,9 @@
             <Button text="Delete"/>
         </HBox>
         
-        <HBox alignment="baseline_right">
+        <HBox alignment="baseline_right" spacing="10">
             <Button text="Save"/>
-            <Button text="Cancel"/>
+            <Button text="Cancel" fx:id="closeAddProductBtn" onAction="#closeAddProduct"/>
         </HBox>
     </VBox>
 </GridPane>
