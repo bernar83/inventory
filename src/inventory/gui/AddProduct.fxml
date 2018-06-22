@@ -14,7 +14,7 @@
         <Insets top="50" right="50" bottom="50" left="50"/>
     </padding>
     
-    <VBox GridPane.columnIndex="0" spacing="40">
+    <VBox GridPane.columnIndex="0" spacing="60">
         <Label text="Add Product">
             <font>
                 <Font name="System Bold" size="20.0"/>
@@ -44,14 +44,41 @@
         </HBox>
     </VBox>
     
-    
-    
-    <VBox GridPane.columnIndex="1">
-        <HBox spacing="10.0">
+    <VBox GridPane.columnIndex="1" spacing="20">
+        <HBox spacing="10.0" alignment="center">
             <Button text="Search"/>
             <TextField/>
         </HBox>
         
+        <TableView prefHeight="180.0">
+            <columns>
+                <TableColumn text="Part ID" minWidth="150"/>
+                <TableColumn text="Part Name" minWidth="150"/>
+                <TableColumn text="Inventory Level" minWidth="150"/>
+                <TableColumn text="Price Per Unit" minWidth="150"/>
+            </columns>
+        </TableView>
         
+        <HBox alignment="baseline_right">
+            <Button text="Add"/>
+        </HBox>
+        
+        <TableView prefHeight="180.0">
+            <columns>
+                <TableColumn text="Part ID" minWidth="150"/>
+                <TableColumn text="Part Name" minWidth="150"/>
+                <TableColumn text="Inventory Level" minWidth="150"/>
+                <TableColumn text="Price Per Unit" minWidth="150"/>
+            </columns>
+        </TableView>
+        
+        <HBox alignment="baseline_right">
+            <Button text="Delete"/>
+        </HBox>
+        
+        <HBox alignment="baseline_right">
+            <Button text="Save"/>
+            <Button text="Cancel"/>
+        </HBox>
     </VBox>
 </GridPane>
