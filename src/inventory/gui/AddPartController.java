@@ -108,6 +108,7 @@ public class AddPartController implements Initializable {
         Scene scene = new Scene(addPartSave);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         window.show();
     }
     
