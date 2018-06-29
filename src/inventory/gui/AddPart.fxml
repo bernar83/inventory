@@ -48,20 +48,20 @@
                 <Label text="Inv"/>
                 <Label text="Price/Cost"/>
                 <Label text="Max"/>
-                <Label text="Company Name" prefWidth="300.0" fx:id="addPartLblNmId"/>
+                <Label text="Machine ID" prefWidth="300.0" fx:id="addPartLblNmId"/>
             </VBox>
             
             <VBox GridPane.columnIndex="1" spacing="10">
                 <TextField promptText="Auto Gen - Disable" disable="true" maxWidth="150.0"/>
-                <TextField promptText="Part Name" maxWidth="150.0"/>
-                <TextField promptText="Inv" maxWidth="150.0"/>
-                <TextField promptText="Price/Cost" maxWidth="150.0"/>
+                <TextField fx:id="addPartNameField" promptText="Part Name" maxWidth="150.0"/>
+                <TextField fx:id="addInvField" promptText="Inv" maxWidth="150.0"/>
+                <TextField fx:id="addPriceField" promptText="Price/Cost" maxWidth="150.0"/>
                 <HBox spacing="5">
-                    <TextField promptText="Max"/>
-                    <Label text="Min" prefWidth="100.0"/>
-                    <TextField promptText="Min"/>
+                    <TextField fx:id="addMaxField" promptText="Max"/>
+                    <Label text="min" prefWidth="100.0"/>
+                    <TextField fx:id="addMinField" promptText="Min"/>
                 </HBox>
-                <TextField promptText="Comp Nm" maxWidth="150.0" fx:id="addPartFieldNmId"/>
+                <TextField fx:id="addPartFieldNmId" promptText="Mach ID" maxWidth="150.0"/>
             </VBox>
             
         </GridPane> 
@@ -69,8 +69,8 @@
     
     <bottom>
         <HBox spacing="10" alignment="CENTER_RIGHT">
-            <Button text="Save" prefWidth="100.0"/>
-            <Button text="Cancel" prefWidth="100.0" fx:id="closeAddPartBtn" onAction="#closeAddPart"/>
+            <Button fx:id="saveAddPartBtn" text="Save" prefWidth="100.0" onAction="#addPartSave"/>
+            <Button fx:id="closeAddPartBtn" text="Cancel" prefWidth="100.0" onAction="#closeAddPart"/>
         </HBox>
     </bottom>
     

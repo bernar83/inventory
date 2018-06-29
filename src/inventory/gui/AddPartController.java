@@ -5,11 +5,19 @@
  */
 package inventory.gui;
 
+import inventory.models.Inhouse;
+import inventory.models.Inventory;
+import inventory.models.Outsourced;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -31,22 +39,76 @@ public class AddPartController implements Initializable {
     @FXML
     private TextField addPartFieldNmId;
     @FXML
+    private TextField addPartNameField;
+    @FXML
+    private TextField addInvField;
+    @FXML
+    private TextField addPriceField;
+    @FXML
+    private TextField addMaxField;
+    @FXML
+    private TextField addMinField;
+    @FXML
     private Button closeAddPartBtn;
+    
+    private boolean inHouseSelected;
+    private int partId;
     
     @FXML
     private void addInHousePart(ActionEvent event) {
         addPartOutSourcedRadio.setSelected(false);
         addPartInHouseRadio.setSelected(true);
-        addPartLblNmId.setText("Company Name");
-        addPartFieldNmId.setPromptText("Comp Nm");
+        addPartLblNmId.setText("Machine ID");
+        addPartFieldNmId.setPromptText("Mach ID");
+        inHouseSelected = true;
     }
     
     @FXML
     private void addOutsourcedPart(ActionEvent event) {
         addPartOutSourcedRadio.setSelected(true);
         addPartInHouseRadio.setSelected(false);
-        addPartLblNmId.setText("Machine ID");
-        addPartFieldNmId.setPromptText("Mach ID");
+        addPartLblNmId.setText("Company Name");
+        addPartFieldNmId.setPromptText("Comp Nm");
+        inHouseSelected = false;
+    }
+    
+    @FXML
+    private void addPartSave(ActionEvent event) throws IOException {
+        String partName = addPartNameField.getText();
+        int inventory = Integer.parseInt(addInvField.getText());
+        double price = Double.parseDouble(addPriceField.getText());
+        int max = Integer.parseInt(addMaxField.getText());
+        int min = Integer.parseInt(addMinField.getText());
+        String nameId = addPartFieldNmId.getText();
+        
+        if (inHouseSelected == true) {
+            Inhouse inHousePart = new Inhouse();
+            inHousePart.setPartID(partId);
+            inHousePart.setInStock(inventory);
+            inHousePart.setPrice(price);
+            inHousePart.setMax(max);
+            inHousePart.setMin(min);
+            inHousePart.setName(partName);
+            inHousePart.setMachineID(Integer.parseInt(nameId));
+            Inventory.addPart(inHousePart);
+        }
+        else {
+            Outsourced outsourcedPart = new Outsourced();
+            outsourcedPart.setPartID(partId);
+            outsourcedPart.setInStock(inventory);
+            outsourcedPart.setPrice(price);
+            outsourcedPart.setMax(max);
+            outsourcedPart.setMin(min);
+            outsourcedPart.setName(partName);
+            outsourcedPart.setCompanyName(nameId);
+            Inventory.addPart(outsourcedPart);
+        }
+        
+        Parent addPartSave = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        Scene scene = new Scene(addPartSave);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
     
     @FXML
@@ -60,7 +122,7 @@ public class AddPartController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        partId = inventory.models.Inventory.incrementPartId();
     }    
     
 }

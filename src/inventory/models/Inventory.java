@@ -5,6 +5,7 @@
  */
 package inventory.models;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -13,8 +14,17 @@ import javafx.collections.ObservableList;
  */
 public class Inventory {
     private ObservableList<Product> products;
-    private ObservableList<Part> allParts;
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static int partId = 0;
     
+    public static ObservableList<Part> getAllParts() {
+        return allParts;
+    }
+    
+    public static int incrementPartId() {
+        partId++;
+        return partId;
+    }
     public void addProduct(Product product) {
         this.products.add(product);
     }
@@ -49,8 +59,8 @@ public class Inventory {
         }
     }
     
-    public void addPart(Part part) {
-        this.allParts.add(part);
+    public static void addPart(Part part) {
+        allParts.add(part);
     }
     
     public boolean deletePart(Part part) {

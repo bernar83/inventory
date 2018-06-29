@@ -5,6 +5,9 @@
  */
 package inventory.gui;
 
+import inventory.models.Part;
+import inventory.models.Inventory;
+import static inventory.models.Inventory.getAllParts;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -24,6 +29,16 @@ import javafx.stage.Stage;
 public class MainScreenController implements Initializable {
     @FXML
     private Button closeMainBtn;
+    @FXML
+    private TableView<Part> partsTable;
+    @FXML
+    private TableColumn<Part, Integer> columnPartId;
+    @FXML
+    private TableColumn<Part, String> columnPartName;
+    @FXML
+    private TableColumn<Part, Integer> columnPartInv;
+    @FXML
+    private TableColumn<Part, Double> columnPartPrice;
     
     @FXML
     private void openAddPart(ActionEvent event) throws IOException {
@@ -58,6 +73,11 @@ public class MainScreenController implements Initializable {
     }
     
     @FXML
+    private void updatePartsTable() {
+        partsTable.setItems(getAllParts());
+    }
+    
+    @FXML
     private void closeMain(ActionEvent event) {
         Stage stage = (Stage) closeMainBtn.getScene().getWindow();
         stage.close();
@@ -65,7 +85,11 @@ public class MainScreenController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        columnPartId.setCellValueFactory(value -> value.getValue().getPropertyPartID().asObject());
+        columnPartInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
+        columnPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
+        columnPartPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
+        updatePartsTable();
     }    
     
 }
