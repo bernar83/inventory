@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -47,6 +48,7 @@ public class MainScreenController implements Initializable {
         Parent loadAdd = FXMLLoader.load(getClass().getResource("/inventory/gui/AddPart.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(loadAdd,400,400));
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         stage.show();
     }
     
