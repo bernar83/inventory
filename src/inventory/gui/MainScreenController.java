@@ -10,6 +10,7 @@ import inventory.models.Inventory;
 import static inventory.models.Inventory.getAllParts;
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -85,6 +87,19 @@ public class MainScreenController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        columnPartPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
+
+            @Override
+            protected void updateItem(Double price, boolean empty) {
+                super.updateItem(price, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(currencyFormat.format(price));
+                }
+            }
+        });
         columnPartId.setCellValueFactory(value -> value.getValue().getPropertyPartID().asObject());
         columnPartInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
         columnPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
