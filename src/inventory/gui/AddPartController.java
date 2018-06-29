@@ -108,14 +108,18 @@ public class AddPartController implements Initializable {
         Scene scene = new Scene(addPartSave);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        closeAddPart(event);
         window.show();
     }
     
     @FXML
-    private void closeAddPart(ActionEvent event) {
-        Stage stage = (Stage) closeAddPartBtn.getScene().getWindow();
-        stage.close();
+    private void closeAddPart(ActionEvent event) throws IOException {
+        Parent addPartSave = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
+        Scene scene = new Scene(addPartSave);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+        window.show();
     }
 
     /**
