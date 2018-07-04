@@ -88,12 +88,13 @@ public class ModifyPartController implements Initializable {
     
     @FXML
     private void closeModPart(ActionEvent event) throws IOException {
-        Parent modPartSave = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-        Scene scene = new Scene(modPartSave);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MainScreen.fxml"));
+        Parent mainPageParent = loader.load();
+        Scene mainPageScene = new Scene(mainPageParent);
+        Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        eventStage.setScene(mainPageScene);
+        eventStage.show();
     }
 
     /**
