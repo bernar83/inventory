@@ -11,6 +11,8 @@ import inventory.models.Outsourced;
 import inventory.models.Part;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,12 +81,14 @@ public class ModifyPartController implements Initializable {
             modPartFieldNmId.setText(((Outsourced) part).getCompanyName());
         }
         
+        String price = formatPrice(part.getPrice());
+        
         partId.setText(Integer.toString(part.getPartID()));
         partInv.setText(Integer.toString(part.getInStock()));
         partMax.setText(Integer.toString(part.getMax()));
         partMin.setText(Integer.toString(part.getMin()));
         partName.setText(part.getName());
-        partPrice.setText(Double.toString(part.getPrice()));
+        partPrice.setText(price);
     }
     
     @FXML
@@ -142,5 +146,10 @@ public class ModifyPartController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    private String formatPrice(Double price) {
+        NumberFormat formatter = new DecimalFormat("#0.00");     
+        return formatter.format(price);
+    }
     
 }
