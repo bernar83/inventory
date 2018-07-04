@@ -63,8 +63,8 @@ public class Inventory {
         allParts.add(part);
     }
     
-    public boolean deletePart(Part part) {
-        return this.allParts.remove(part);
+    public static boolean deletePart(Part part) {
+        return allParts.remove(part);
     }
     
     public Part lookupPart(int id) {

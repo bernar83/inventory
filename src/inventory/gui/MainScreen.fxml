@@ -41,7 +41,7 @@
         
         <Button layoutX="200.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Add" onAction="#openAddPart"/>
         <Button layoutX="300.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify" onAction="#openModifyPart"/>
-        <Button layoutX="400.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete"/>
+        <Button layoutX="400.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Delete" onAction="#deletePartFromInventory"/>
         
         <Label layoutX="525.0" layoutY="90.0" text="Products">
             <font>

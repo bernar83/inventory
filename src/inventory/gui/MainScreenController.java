@@ -7,6 +7,7 @@ package inventory.gui;
 
 import inventory.models.Part;
 import inventory.models.Inventory;
+import static inventory.models.Inventory.deletePart;
 import static inventory.models.Inventory.getAllParts;
 import java.io.IOException;
 import java.net.URL;
@@ -66,6 +67,13 @@ public class MainScreenController implements Initializable {
         mainStage.hide();
         mainStage.setScene(modPartScene);
         mainStage.show();
+    }
+    
+    @FXML
+    private void deletePartFromInventory(ActionEvent event) {
+        Part selectedPart = partsTable.getSelectionModel().getSelectedItem();
+        
+        deletePart(selectedPart);
     }
     
     @FXML
