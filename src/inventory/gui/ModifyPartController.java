@@ -58,14 +58,14 @@ public class ModifyPartController implements Initializable {
     private void modInHousePart() {
         modPartOutSourcedRadio.setSelected(false);
         modPartInHouseRadio.setSelected(true);
-        modPartLblNmId.setText("Company Name");
+        modPartLblNmId.setText("Machine ID");
     }
     
     @FXML
     private void modOutsourcedPart() {
         modPartOutSourcedRadio.setSelected(true);
         modPartInHouseRadio.setSelected(false);
-        modPartLblNmId.setText("Machine ID");
+        modPartLblNmId.setText("Company Name");
     }
     
     @FXML
