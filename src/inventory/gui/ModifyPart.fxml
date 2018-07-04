@@ -69,7 +69,7 @@
     
     <bottom>
         <HBox spacing="10" alignment="CENTER_RIGHT">
-            <Button text="Save" prefWidth="100.0"/>
+            <Button text="Save" prefWidth="100.0" onAction="#saveModPart"/>
             <Button text="Cancel" prefWidth="100.0" fx:id="closeModPartBtn" onAction="#closeModPart"/>
         </HBox>
     </bottom>

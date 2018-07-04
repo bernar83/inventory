@@ -6,6 +6,7 @@
 package inventory.gui;
 
 import inventory.models.Inhouse;
+import inventory.models.Inventory;
 import inventory.models.Outsourced;
 import inventory.models.Part;
 import java.io.IOException;
@@ -84,6 +85,43 @@ public class ModifyPartController implements Initializable {
         partMin.setText(Integer.toString(part.getMin()));
         partName.setText(part.getName());
         partPrice.setText(Double.toString(part.getPrice()));
+    }
+    
+    @FXML
+    private void saveModPart(ActionEvent event) throws IOException {
+        String partNameField = partName.getText();
+        int partIdField = Integer.parseInt(partId.getText());
+        int partInvField = Integer.parseInt(partInv.getText());
+        int partMaxField = Integer.parseInt(partMax.getText());
+        int partMinField = Integer.parseInt(partMin.getText());
+        double partPriceField = Double.parseDouble(partPrice.getText());
+        
+        if (modPartInHouseRadio.isSelected()) {
+            int partMachineId = Integer.parseInt(modPartFieldNmId.getText());
+            Inhouse inHousePart = new Inhouse();
+            inHousePart.setInStock(partInvField);
+            inHousePart.setMachineID(partMachineId);
+            inHousePart.setMax(partMaxField);
+            inHousePart.setMin(partMinField);
+            inHousePart.setName(partNameField);
+            inHousePart.setPartID(partIdField);
+            inHousePart.setPrice(partPriceField);
+            Inventory.updatePart(partIdField, inHousePart);
+        }
+        else {
+            String outsourcedName = modPartFieldNmId.getText();
+            Outsourced outsourcedPart = new Outsourced();
+            outsourcedPart.setCompanyName(outsourcedName);
+            outsourcedPart.setInStock(partInvField);
+            outsourcedPart.setMax(partMaxField);
+            outsourcedPart.setMin(partMinField);
+            outsourcedPart.setName(partNameField);
+            outsourcedPart.setPartID(partIdField);
+            outsourcedPart.setPrice(partPriceField);
+            Inventory.updatePart(partIdField, outsourcedPart);
+        }
+        
+        closeModPart(event);
     }
     
     @FXML

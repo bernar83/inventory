@@ -78,10 +78,10 @@ public class Inventory {
         return part;
     }
     
-    public void updatePart(int id, Part part) {
-        for (int i = 0; i < this.allParts.size(); i++) {
-            if (this.allParts.get(i).getPartID()== id) {
-                this.allParts.set(i, part);
+    public static void updatePart(int id, Part part) {
+        for (int i = 0; i < allParts.size(); i++) {
+            if (allParts.get(i).getPartID()== id) {
+                allParts.set(i, part);
             }
         }
     }
