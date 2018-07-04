@@ -54,11 +54,18 @@ public class MainScreenController implements Initializable {
     
     @FXML
     private void openModifyPart(ActionEvent event) throws IOException {
-        Parent loadModify = FXMLLoader.load(getClass().getResource("/inventory/gui/ModifyPart.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(loadModify,400,400));
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-        stage.show();
+        Part selectedPart = partsTable.getSelectionModel().getSelectedItem();
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ModifyPart.fxml"));
+        Parent modPartParent = loader.load();
+        Scene modPartScene = new Scene(modPartParent);
+        Stage mainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ModifyPartController modController = loader.getController();
+        modController.openModPart(selectedPart);
+        mainStage.hide();
+        mainStage.setScene(modPartScene);
+        mainStage.show();
     }
     
     @FXML

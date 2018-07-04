@@ -52,7 +52,6 @@ public class AddPartController implements Initializable {
     @FXML
     private Button closeAddPartBtn;
     
-    private boolean inHouseSelected;
     private int partId;
     
     @FXML
@@ -61,7 +60,6 @@ public class AddPartController implements Initializable {
         addPartInHouseRadio.setSelected(true);
         addPartLblNmId.setText("Machine ID");
         addPartFieldNmId.setPromptText("Mach ID");
-        inHouseSelected = true;
     }
     
     @FXML
@@ -70,7 +68,6 @@ public class AddPartController implements Initializable {
         addPartInHouseRadio.setSelected(false);
         addPartLblNmId.setText("Company Name");
         addPartFieldNmId.setPromptText("Comp Nm");
-        inHouseSelected = false;
     }
     
     @FXML
@@ -82,7 +79,7 @@ public class AddPartController implements Initializable {
         int min = Integer.parseInt(addMinField.getText());
         String nameId = addPartFieldNmId.getText();
         
-        if (inHouseSelected == true) {
+        if (this.addPartInHouseRadio.isSelected()) {
             Inhouse inHousePart = new Inhouse();
             inHousePart.setPartID(partId);
             inHousePart.setInStock(inventory);

@@ -52,14 +52,14 @@
             </VBox>
             
             <VBox GridPane.columnIndex="1" spacing="10">
-                <TextField disable="true" maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
+                <TextField fx:id="partId" disable="true" maxWidth="150.0"/>
+                <TextField fx:id="partName" maxWidth="150.0"/>
+                <TextField fx:id="partInv" maxWidth="150.0"/>
+                <TextField fx:id="partPrice" maxWidth="150.0"/>
                 <HBox spacing="5">
-                    <TextField/>
-                    <Label text="Min" prefWidth="100.0"/>
-                    <TextField/>
+                    <TextField fx:id="partMax"/>
+                    <Label text="partMin" prefWidth="100.0"/>
+                    <TextField fx:id="partMin"/>
                 </HBox>
                 <TextField maxWidth="150.0" fx:id="modPartFieldNmId"/>
             </VBox>
