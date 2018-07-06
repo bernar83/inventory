@@ -67,15 +67,16 @@ public class Inventory {
         return allParts.remove(part);
     }
     
-    public Part lookupPart(int id) {
-        Part part = null;
-        for (int i = 0; i < this.allParts.size(); i++) {
-            if (this.allParts.get(i).getPartID() == id) {
-                part = this.allParts.get(i);
+    public static ObservableList<Part> lookupPart(int id) {
+        ObservableList<Part> searchedParts = FXCollections.observableArrayList();
+        
+        for (int i = 0; i < allParts.size(); i++) {
+            if (allParts.get(i).getPartID() == id) {
+                searchedParts.add(allParts.get(i));
             }
         }
         
-        return part;
+        return searchedParts;
     }
     
     public static void updatePart(int id, Part part) {

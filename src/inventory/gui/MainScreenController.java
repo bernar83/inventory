@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -43,6 +45,8 @@ public class MainScreenController implements Initializable {
     private TableColumn<Part, Integer> columnPartInv;
     @FXML
     private TableColumn<Part, Double> columnPartPrice;
+    @FXML
+    private TextField partToSearchFor;
     
     @FXML
     private void openAddPart(ActionEvent event) throws IOException {
@@ -74,6 +78,14 @@ public class MainScreenController implements Initializable {
         Part selectedPart = partsTable.getSelectionModel().getSelectedItem();
         
         deletePart(selectedPart);
+    }
+    
+    @FXML
+    private void searchPart() {
+        int searchedPartID = Integer.parseInt(partToSearchFor.getText());
+        
+        ObservableList<Part> searchedPart = Inventory.lookupPart(searchedPartID);
+        partsTable.setItems(searchedPart);
     }
     
     @FXML

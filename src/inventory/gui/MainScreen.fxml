@@ -35,9 +35,9 @@
             </columns>
         </TableView>
         
-        <Button layoutX="250.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search"/>
+        <Button layoutX="250.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search" onAction="#searchPart"/>
         
-        <TextField layoutX="375.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0"/>
+        <TextField layoutX="375.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0" fx:id="partToSearchFor" promptText="Part ID (Ex: 1)"/>
         
         <Button layoutX="200.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Add" onAction="#openAddPart"/>
         <Button layoutX="300.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" text="Modify" onAction="#openModifyPart"/>
