@@ -50,12 +50,12 @@
             <TextField/>
         </HBox>
         
-        <TableView prefHeight="180.0">
+        <TableView fx:id="partsToAddTable" prefHeight="180.0">
             <columns>
-                <TableColumn text="Part ID" minWidth="150"/>
-                <TableColumn text="Part Name" minWidth="150"/>
-                <TableColumn text="Inventory Level" minWidth="150"/>
-                <TableColumn text="Price Per Unit" minWidth="150"/>
+                <TableColumn fx:id="columnAddPartId" text="Part ID" minWidth="150"/>
+                <TableColumn fx:id="columnAddPartName" text="Part Name" minWidth="150"/>
+                <TableColumn fx:id="columnAddPartInv" text="Inventory Level" minWidth="150"/>
+                <TableColumn fx:id="columnAddPartPrice" text="Price Per Unit" minWidth="150"/>
             </columns>
         </TableView>
         

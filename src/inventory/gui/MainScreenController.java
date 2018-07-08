@@ -101,6 +101,7 @@ public class MainScreenController implements Initializable {
         Parent loadAddProduct = FXMLLoader.load(getClass().getResource("/inventory/gui/AddProduct.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(loadAddProduct));
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         stage.show();
     }
     
