@@ -85,6 +85,11 @@ public class AddProductController implements Initializable {
     }
     
     @FXML
+    private void deleteStagedPart() {
+        stagedPartsTable.getItems().remove(stagedPartsTable.getSelectionModel().getSelectedItem());
+    }
+    
+    @FXML
     private void closeAddProduct(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainScreen.fxml"));
