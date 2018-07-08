@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -43,6 +45,18 @@ public class AddProductController implements Initializable {
     private TableColumn<Part, Integer> columnAddPartInv;
     @FXML
     private TableColumn<Part, Double> columnAddPartPrice;
+    @FXML
+    private Button addPartToSearchFor;
+    @FXML
+    private TextField partToSearchFor;
+    
+    @FXML
+    private void searchAddPart() {
+        int searchedAddPartId = Integer.parseInt(partToSearchFor.getText());
+        
+        ObservableList<Part> searchedPart = Inventory.lookupPart(searchedAddPartId);
+        partsToAddTable.setItems(searchedPart);
+    }
     
     @FXML
     private void updateAddPartsTable() {
