@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ public class AddProductController implements Initializable {
     @FXML
     private Button closeAddProductBtn;
     @FXML
-    private TableView partsToAddTable;
+    private TableView<Part> partsToAddTable;
     @FXML
     private TableColumn<Part, Integer> columnAddPartId;
     @FXML
@@ -49,6 +50,18 @@ public class AddProductController implements Initializable {
     private Button addPartToSearchFor;
     @FXML
     private TextField partToSearchFor;
+    @FXML
+    private TableView<Part> stagedPartsTable;
+    @FXML
+    private TableColumn<Part, Integer> stagedPartId;
+    @FXML
+    private TableColumn<Part, String> stagedPartName;
+    @FXML
+    private TableColumn<Part, Integer> stagedPartInv;
+    @FXML
+    private TableColumn<Part, Double> stagedPartPrice;
+    
+    private ObservableList<Part> stagedparts = FXCollections.observableArrayList();
     
     @FXML
     private void searchAddPart() {
@@ -56,6 +69,14 @@ public class AddProductController implements Initializable {
         
         ObservableList<Part> searchedPart = Inventory.lookupPart(searchedAddPartId);
         partsToAddTable.setItems(searchedPart);
+    }
+    
+    @FXML
+    private void stagePart() {
+        Part selectedPart = partsToAddTable.getSelectionModel().getSelectedItem();
+        
+        stagedparts.add(selectedPart);
+        stagedPartsTable.setItems(stagedparts);
     }
     
     @FXML
@@ -96,6 +117,22 @@ public class AddProductController implements Initializable {
         columnAddPartInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
         columnAddPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
         columnAddPartPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
+        stagedPartPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
+
+            @Override
+            protected void updateItem(Double price, boolean empty) {
+                super.updateItem(price, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(currencyFormat.format(price));
+                }
+            }
+        });
+        stagedPartId.setCellValueFactory(value -> value.getValue().getPropertyPartID().asObject());
+        stagedPartInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
+        stagedPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
+        stagedPartPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
         updateAddPartsTable();
     }    
     

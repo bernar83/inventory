@@ -60,15 +60,15 @@
         </TableView>
         
         <HBox alignment="baseline_right">
-            <Button text="Add"/>
+            <Button text="Add" onAction="#stagePart"/>
         </HBox>
         
-        <TableView prefHeight="180.0">
+        <TableView fx:id="stagedPartsTable" prefHeight="180.0">
             <columns>
-                <TableColumn text="Part ID" minWidth="150"/>
-                <TableColumn text="Part Name" minWidth="150"/>
-                <TableColumn text="Inventory Level" minWidth="150"/>
-                <TableColumn text="Price Per Unit" minWidth="150"/>
+                <TableColumn fx:id="stagedPartId" text="Part ID" minWidth="150"/>
+                <TableColumn fx:id="stagedPartName" text="Part Name" minWidth="150"/>
+                <TableColumn fx:id="stagedPartInv" text="Inventory Level" minWidth="150"/>
+                <TableColumn fx:id="stagedPartPrice" text="Price Per Unit" minWidth="150"/>
             </columns>
         </TableView>
         
