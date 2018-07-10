@@ -31,14 +31,14 @@
             </VBox>
 
             <VBox spacing="10">
-                <TextField disable="true" maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
-                <TextField maxWidth="150.0"/>
+                <TextField fx:id="productId" disable="true" maxWidth="150.0"/>
+                <TextField fx:id="productName" maxWidth="150.0"/>
+                <TextField fx:id="productInv" maxWidth="150.0"/>
+                <TextField fx:id="productPrice" maxWidth="150.0"/>
                 <HBox spacing="10">
-                    <TextField prefWidth="60.0"/>
+                    <TextField fx:id="productMax" prefWidth="60.0"/>
                     <Label text="Min" prefWidth="40.0"/>
-                    <TextField prefWidth="60.0"/>
+                    <TextField fx:id="productMin" prefWidth="60.0"/>
                 </HBox>
             </VBox>
         </HBox>
