@@ -5,11 +5,16 @@
  */
 package inventory.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -24,9 +29,14 @@ public class ModifyProductController implements Initializable {
     private Button closeModProductBtn;
     
     @FXML
-    private void closeModProduct(ActionEvent event) {
-        Stage stage = (Stage) closeModProductBtn.getScene().getWindow();
-        stage.close();
+    private void closeModProduct(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MainScreen.fxml"));
+        Parent mainPageParent = loader.load();
+        Scene mainPageScene = new Scene(mainPageParent);
+        Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        eventStage.setScene(mainPageScene);
+        eventStage.show();
     }
 
     /**
