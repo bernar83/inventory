@@ -5,6 +5,12 @@
  */
 package inventory.models;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,51 +20,80 @@ import javafx.collections.ObservableList;
  */
 public class Product {
     private ObservableList<Part> parts = FXCollections.observableArrayList();
-    private int productID;
-    private String name;
-    private double price;
-    private int inStock;
-    private int min;
-    private int max;
+    private IntegerProperty productID;
+    private StringProperty name;
+    private DoubleProperty price;
+    private IntegerProperty inStock;
+    private IntegerProperty min;
+    private IntegerProperty max;
+    
+    public Product() {
+        this.productID = new SimpleIntegerProperty();
+        this.name = new SimpleStringProperty();
+        this.price = new SimpleDoubleProperty();
+        this.inStock = new SimpleIntegerProperty();
+        this.min = new SimpleIntegerProperty();
+        this.max = new SimpleIntegerProperty();
+    }
     
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name); 
     }
     
     public String getName() {
-        return this.name;
+        return this.name.get();
+    }
+    
+    public StringProperty getPropertyProductName() {
+        return name;
     }
     
     public void setPrice(double price) {
-        this.price = price;
+        this.price.set(price);
     }
     
     public double getPrice() {
-        return this.price;
+        return this.price.get();
+    }
+    
+    public DoubleProperty getPropertyPrice() {
+        return price;
     }
     
     public void setInStock(int stock) {
-        this.inStock = stock;
+        this.inStock.set(stock);
     }
     
     public int getInStock() {
-        return this.inStock;
+        return this.inStock.get();
+    }
+    
+    public IntegerProperty getPropertyStock() {
+        return inStock;
     }
     
     public void setMin(int min) {
-        this.min = min;
+        this.min.set(min);
     }
     
     public int getMin() {
-        return this.min;
+        return this.min.get();
+    }
+    
+    public IntegerProperty getPropertyMin() {
+        return min;
     }
     
     public void setMax(int max) {
-        this.max = max;
+        this.max.set(max);
     }
     
     public int getMax() {
-        return this.max;
+        return this.max.get();
+    }
+    
+    public IntegerProperty getPropertyMax() {
+        return max;
     }
     
     public void addAssociatedPart(Part part) {
@@ -88,10 +123,14 @@ public class Product {
     }
     
     public void setProductID(int id) {
-        this.productID = id;
+        this.productID.set(id);
     }
     
     public int getProductId() {
-        return this.productID;
+        return this.productID.get();
+    }
+    
+    public IntegerProperty getPropertyProductId() {
+        return productID;
     }
 }

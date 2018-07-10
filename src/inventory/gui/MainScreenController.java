@@ -9,6 +9,8 @@ import inventory.models.Part;
 import inventory.models.Inventory;
 import static inventory.models.Inventory.deletePart;
 import static inventory.models.Inventory.getAllParts;
+import static inventory.models.Inventory.getAllProducts;
+import inventory.models.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
@@ -47,6 +49,16 @@ public class MainScreenController implements Initializable {
     private TableColumn<Part, Double> columnPartPrice;
     @FXML
     private TextField partToSearchFor;
+    @FXML
+    private TableView<Product> productsTable;
+    @FXML
+    private TableColumn<Product, Integer> columnProductId;
+    @FXML
+    private TableColumn<Product, String> columnProductName;
+    @FXML
+    private TableColumn<Product, Integer> columnProductInv;
+    @FXML
+    private TableColumn<Product, Double> columnProductPrice;
     
     @FXML
     private void openAddPart(ActionEvent event) throws IOException {
@@ -111,6 +123,11 @@ public class MainScreenController implements Initializable {
     }
     
     @FXML
+    private void updateProductsTable() {
+        productsTable.setItems(getAllProducts());
+    }
+    
+    @FXML
     private void closeMain(ActionEvent event) {
         Stage stage = (Stage) closeMainBtn.getScene().getWindow();
         stage.close();
@@ -136,6 +153,23 @@ public class MainScreenController implements Initializable {
         columnPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
         columnPartPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
         updatePartsTable();
+        columnProductPrice.setCellFactory(tc -> new TableCell<Product, Double>() {
+
+            @Override
+            protected void updateItem(Double price, boolean empty) {
+                super.updateItem(price, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(currencyFormat.format(price));
+                }
+            }
+        });
+        columnProductId.setCellValueFactory(value -> value.getValue().getPropertyProductId().asObject());
+        columnProductInv.setCellValueFactory(value -> value.getValue().getPropertyStock().asObject());
+        columnProductName.setCellValueFactory(value -> value.getValue().getPropertyProductName());
+        columnProductPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
+        updateProductsTable();
     }    
     
 }

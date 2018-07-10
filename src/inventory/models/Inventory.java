@@ -13,20 +13,31 @@ import javafx.collections.ObservableList;
  * @author naber
  */
 public class Inventory {
-    private ObservableList<Product> products;
+    private static ObservableList<Product> products = FXCollections.observableArrayList();;
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static int partId = 0;
+    private static int productId = 0;
     
     public static ObservableList<Part> getAllParts() {
         return allParts;
+    }
+    
+    public static ObservableList<Product> getAllProducts() {
+        return products;
     }
     
     public static int incrementPartId() {
         partId++;
         return partId;
     }
-    public void addProduct(Product product) {
-        this.products.add(product);
+    
+    public static int incrementProductId() {
+        productId++;
+        return productId;
+    }
+    
+    public static void addProduct(Product product) {
+        products.add(product);
     }
     
     public boolean removeProduct(int id) {

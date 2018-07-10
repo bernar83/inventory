@@ -7,6 +7,7 @@ package inventory.gui;
 
 import inventory.models.Inventory;
 import inventory.models.Part;
+import inventory.models.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
@@ -60,8 +61,19 @@ public class AddProductController implements Initializable {
     private TableColumn<Part, Integer> stagedPartInv;
     @FXML
     private TableColumn<Part, Double> stagedPartPrice;
+    @FXML
+    private TextField productName;
+    @FXML
+    private TextField productInv;
+    @FXML
+    private TextField productPrice;
+    @FXML
+    private TextField productMax;
+    @FXML
+    private TextField productMin;
     
     private ObservableList<Part> stagedparts = FXCollections.observableArrayList();
+    private int productId;
     
     @FXML
     private void searchAddPart() {
@@ -90,6 +102,29 @@ public class AddProductController implements Initializable {
     }
     
     @FXML
+    private void saveAddProduct(ActionEvent event) throws IOException {
+        String productNameField = productName.getText();
+        int productInvField = Integer.parseInt(productInv.getText());
+        double productPriceField = Double.parseDouble(productPrice.getText());
+        int productMaxField = Integer.parseInt(productMax.getText());
+        int productMinField = Integer.parseInt(productMin.getText());
+        
+        Product product = new Product();
+        product.setInStock(productInvField);
+        product.setMax(productMaxField);
+        product.setMin(productMinField);
+        product.setName(productNameField);
+        product.setPrice(productPriceField);
+        product.setProductID(productId);
+        for (int i = 0; i < stagedPartsTable.getItems().size(); i++) {
+            Part stagedPart = stagedPartsTable.getItems().get(i);
+            product.addAssociatedPart(stagedPart);
+        }
+        Inventory.addProduct(product);
+        closeAddProduct(event);
+    }
+    
+    @FXML
     private void closeAddProduct(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainScreen.fxml"));
@@ -105,6 +140,7 @@ public class AddProductController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        productId = Inventory.incrementProductId();
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         columnAddPartPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
 

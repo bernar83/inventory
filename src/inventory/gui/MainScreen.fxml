@@ -49,12 +49,12 @@
             </font>
         </Label>
         
-        <TableView layoutX="525.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
+        <TableView fx:id="productsTable" layoutX="525.0" layoutY="115.0" prefHeight="175.0" prefWidth="500.0">
             <columns>
-                <TableColumn prefWidth="100.0" text="Product ID"/>
-                <TableColumn prefWidth="100.0" text="Product Name"/>
-                <TableColumn prefWidth="125.0" text="Inventory Level"/>
-                <TableColumn prefWidth="175.0" text="Price per Unit"/>
+                <TableColumn fx:id="columnProductId" prefWidth="100.0" text="Product ID"/>
+                <TableColumn fx:id="columnProductName" prefWidth="100.0" text="Product Name"/>
+                <TableColumn fx:id="columnProductInv" prefWidth="125.0" text="Inventory Level"/>
+                <TableColumn fx:id="columnProductPrice" prefWidth="175.0" text="Price per Unit"/>
             </columns>
         </TableView>
         
