@@ -50,12 +50,12 @@
             <TextField/>
         </HBox>
         
-        <TableView prefHeight="180.0">
+        <TableView fx:id="partsTable" prefHeight="180.0">
             <columns>
-                <TableColumn text="Part ID" minWidth="150"/>
-                <TableColumn text="Part Name" minWidth="150"/>
-                <TableColumn text="Inventory Level" minWidth="150"/>
-                <TableColumn text="Price Per Unit" minWidth="150"/>
+                <TableColumn fx:id="partId" text="Part ID" minWidth="150"/>
+                <TableColumn fx:id="partName" text="Part Name" minWidth="150"/>
+                <TableColumn fx:id="partInv" text="Inventory Level" minWidth="150"/>
+                <TableColumn fx:id="partPrice" text="Price Per Unit" minWidth="150"/>
             </columns>
         </TableView>
         
@@ -63,12 +63,12 @@
             <Button text="Add"/>
         </HBox>
         
-        <TableView prefHeight="180.0">
+        <TableView fx:id="stagedParts" prefHeight="180.0">
             <columns>
-                <TableColumn text="Part ID" minWidth="150"/>
-                <TableColumn text="Part Name" minWidth="150"/>
-                <TableColumn text="Inventory Level" minWidth="150"/>
-                <TableColumn text="Price Per Unit" minWidth="150"/>
+                <TableColumn fx:id="stagedPartId" text="Part ID" minWidth="150"/>
+                <TableColumn fx:id="stagedPartName" text="Part Name" minWidth="150"/>
+                <TableColumn fx:id="stagedPartInv" text="Inventory Level" minWidth="150"/>
+                <TableColumn fx:id="stagedPartPrice" text="Price Per Unit" minWidth="150"/>
             </columns>
         </TableView>
         

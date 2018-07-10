@@ -5,9 +5,13 @@
  */
 package inventory.gui;
 
+import inventory.models.Inventory;
+import static inventory.models.Inventory.getAllParts;
+import inventory.models.Part;
 import inventory.models.Product;
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +21,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -41,6 +48,31 @@ public class ModifyProductController implements Initializable {
     private TextField productMax;
     @FXML
     private TextField productMin;
+    @FXML
+    private TableView<Part> partsTable;
+    @FXML
+    private TableColumn<Part, Integer> partId;
+    @FXML
+    private TableColumn<Part, String> partName;
+    @FXML
+    private TableColumn<Part, Integer> partInv;
+    @FXML
+    private TableColumn<Part, Double> partPrice;
+    @FXML
+    private TableView<Part> stagedParts;
+    @FXML
+    private TableColumn<Part, Integer> stagedPartId;
+    @FXML
+    private TableColumn<Part, String> stagedPartName;
+    @FXML
+    private TableColumn<Part, Integer> stagedPartInv;
+    @FXML
+    private TableColumn<Part, Double> stagedPartPrice;
+    
+    @FXML
+    private void updatePartsTable() {
+        partsTable.setItems(getAllParts());
+    }
     
     @FXML
     public void openModProduct(Product product) {
@@ -68,7 +100,40 @@ public class ModifyProductController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        partPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
+
+            @Override
+            protected void updateItem(Double price, boolean empty) {
+                super.updateItem(price, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(currencyFormat.format(price));
+                }
+            }
+        });
+        partId.setCellValueFactory(value -> value.getValue().getPropertyPartID().asObject());
+        partInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
+        partName.setCellValueFactory(value -> value.getValue().getPropertyName());
+        partPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
+        stagedPartPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
+
+            @Override
+            protected void updateItem(Double price, boolean empty) {
+                super.updateItem(price, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(currencyFormat.format(price));
+                }
+            }
+        });
+        stagedPartId.setCellValueFactory(value -> value.getValue().getPropertyPartID().asObject());
+        stagedPartInv.setCellValueFactory(value -> value.getValue().getPropertyInStock().asObject());
+        stagedPartName.setCellValueFactory(value -> value.getValue().getPropertyName());
+        stagedPartPrice.setCellValueFactory(value -> value.getValue().getPropertyPrice().asObject());
+        updatePartsTable();
     }    
     
 }
