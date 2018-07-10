@@ -51,11 +51,11 @@ public class Inventory {
         return false;
     }
     
-    public Product lookupProduct(int id) {
-        Product product = null;
-        for (int i = 0; i < this.products.size(); i++) {
-            if (this.products.get(i).getProductId() == id) {
-                product = this.products.get(i);
+    public static ObservableList<Product> lookupProduct(int id) {
+        ObservableList<Product> product = FXCollections.observableArrayList();
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getProductId() == id) {
+                product.add(products.get(i));
             }
         }
         

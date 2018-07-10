@@ -50,6 +50,8 @@ public class MainScreenController implements Initializable {
     @FXML
     private TextField partToSearchFor;
     @FXML
+    private TextField productToSearchFor;
+    @FXML
     private TableView<Product> productsTable;
     @FXML
     private TableColumn<Product, Integer> columnProductId;
@@ -98,6 +100,14 @@ public class MainScreenController implements Initializable {
         
         ObservableList<Part> searchedPart = Inventory.lookupPart(searchedPartID);
         partsTable.setItems(searchedPart);
+    }
+    
+    @FXML
+    private void searchProduct() {
+        int searchedProductID = Integer.parseInt(productToSearchFor.getText());
+        
+        ObservableList<Product> searchedProduct = Inventory.lookupProduct(searchedProductID);
+        productsTable.setItems(searchedProduct);
     }
     
     @FXML

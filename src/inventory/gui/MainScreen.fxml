@@ -58,9 +58,9 @@
             </columns>
         </TableView>
         
-        <Button layoutX="750.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search"/>
+        <Button layoutX="750.0" layoutY="82.0" prefHeight="5.0" prefWidth="65.0" text="Search" onAction="#searchProduct"/>
         
-        <TextField layoutX="885.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0"/>
+        <TextField layoutX="885.0" layoutY="82.0" prefHeight="25.0" prefWidth="120.0" fx:id="productToSearchFor" promptText="Product ID (Ex: 1)"/>
         
         <Button layoutX="700.0" layoutY="300.0" prefHeight="10.0" prefWidth="85.0" 
                 text="Add" onAction="#openAddProduct"/>
