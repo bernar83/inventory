@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -69,6 +71,8 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TableColumn<Part, Double> stagedPartPrice;
     
+    private ObservableList<Part> stagedparts = FXCollections.observableArrayList();
+    
     @FXML
     private void updatePartsTable() {
         partsTable.setItems(getAllParts());
@@ -82,6 +86,14 @@ public class ModifyProductController implements Initializable {
         productPrice.setText(Double.toString(product.getPrice()));
         productMax.setText(Integer.toString(product.getMax()));
         productMin.setText(Integer.toString(product.getMin()));
+    }
+    
+    @FXML
+    private void stagePart() {
+        Part selectedPart = partsTable.getSelectionModel().getSelectedItem();
+        
+        stagedparts.add(selectedPart);
+        stagedParts.setItems(stagedparts);
     }
     
     @FXML

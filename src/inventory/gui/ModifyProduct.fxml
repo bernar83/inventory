@@ -60,7 +60,7 @@
         </TableView>
         
         <HBox alignment="baseline_right">
-            <Button text="Add"/>
+            <Button onAction="#stagePart" text="Add"/>
         </HBox>
         
         <TableView fx:id="stagedParts" prefHeight="180.0">
