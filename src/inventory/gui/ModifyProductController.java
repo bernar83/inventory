@@ -11,6 +11,7 @@ import inventory.models.Part;
 import inventory.models.Product;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -87,10 +88,12 @@ public class ModifyProductController implements Initializable {
     
     @FXML
     public void openModProduct(Product product) {
+        String price = formatPrice(product.getPrice());
+        
         productId.setText(Integer.toString(product.getProductId()));
         productName.setText(product.getName());
         productInv.setText(Integer.toString(product.getInStock()));
-        productPrice.setText(Double.toString(product.getPrice()));
+        productPrice.setText(price);
         productMax.setText(Integer.toString(product.getMax()));
         productMin.setText(Integer.toString(product.getMin()));
         stagedparts = product.getParts();
@@ -194,4 +197,8 @@ public class ModifyProductController implements Initializable {
         updatePartsTable();
     }    
     
+    private String formatPrice(Double price) {
+        NumberFormat formatter = new DecimalFormat("#0.00");     
+        return formatter.format(price);
+    }
 }
