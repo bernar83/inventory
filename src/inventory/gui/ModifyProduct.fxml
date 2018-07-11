@@ -73,7 +73,7 @@
         </TableView>
         
         <HBox alignment="baseline_right">
-            <Button text="Delete"/>
+            <Button text="Delete" onAction="#deleteStagedPart"/>
         </HBox>
         
         <HBox alignment="baseline_right" spacing="10">

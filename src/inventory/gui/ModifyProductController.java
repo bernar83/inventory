@@ -114,6 +114,11 @@ public class ModifyProductController implements Initializable {
     }
     
     @FXML
+    private void deleteStagedPart() {
+        stagedPartsTable.getItems().remove(stagedPartsTable.getSelectionModel().getSelectedItem());
+    }
+    
+    @FXML
     private void closeModProduct(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainScreen.fxml"));
