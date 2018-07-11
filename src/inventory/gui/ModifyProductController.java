@@ -70,6 +70,8 @@ public class ModifyProductController implements Initializable {
     private TableColumn<Part, Integer> stagedPartInv;
     @FXML
     private TableColumn<Part, Double> stagedPartPrice;
+    @FXML
+    private TextField partToSearchFor;
     
     private ObservableList<Part> stagedparts = FXCollections.observableArrayList();
     
@@ -93,6 +95,14 @@ public class ModifyProductController implements Initializable {
         productMin.setText(Integer.toString(product.getMin()));
         stagedparts = product.getParts();
         updateStagedPartsTable();
+    }
+    
+    @FXML
+    private void searchAddPart() {
+        int searchedAddPartId = Integer.parseInt(partToSearchFor.getText());
+        
+        ObservableList<Part> searchedPart = Inventory.lookupPart(searchedAddPartId);
+        partsTable.setItems(searchedPart);
     }
     
     @FXML

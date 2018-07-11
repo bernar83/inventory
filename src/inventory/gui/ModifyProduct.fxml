@@ -46,8 +46,8 @@
     
     <VBox GridPane.columnIndex="1" spacing="20">
         <HBox spacing="10.0" alignment="center">
-            <Button text="Search"/>
-            <TextField/>
+            <Button text="Search" onAction="#searchAddPart"/>
+            <TextField fx:id="partToSearchFor"/>
         </HBox>
         
         <TableView fx:id="partsTable" prefHeight="180.0">
