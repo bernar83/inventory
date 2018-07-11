@@ -103,6 +103,7 @@ public class AddProductController implements Initializable {
     
     @FXML
     private void saveAddProduct(ActionEvent event) throws IOException {
+        productId = Inventory.incrementProductId();
         String productNameField = productName.getText();
         int productInvField = Integer.parseInt(productInv.getText());
         double productPriceField = Double.parseDouble(productPrice.getText());
@@ -140,7 +141,6 @@ public class AddProductController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        productId = Inventory.incrementProductId();
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         columnAddPartPrice.setCellFactory(tc -> new TableCell<Part, Double>() {
 

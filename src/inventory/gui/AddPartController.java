@@ -72,6 +72,7 @@ public class AddPartController implements Initializable {
     
     @FXML
     private void addPartSave(ActionEvent event) throws IOException {
+        partId = inventory.models.Inventory.incrementPartId();
         String partName = addPartNameField.getText();
         int inventory = Integer.parseInt(addInvField.getText());
         double price = Double.parseDouble(addPriceField.getText());
@@ -121,7 +122,7 @@ public class AddPartController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        partId = inventory.models.Inventory.incrementPartId();
+        
     }    
     
 }
