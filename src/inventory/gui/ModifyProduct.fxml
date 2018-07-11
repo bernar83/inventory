@@ -63,7 +63,7 @@
             <Button onAction="#stagePart" text="Add"/>
         </HBox>
         
-        <TableView fx:id="stagedParts" prefHeight="180.0">
+        <TableView fx:id="stagedPartsTable" prefHeight="180.0">
             <columns>
                 <TableColumn fx:id="stagedPartId" text="Part ID" minWidth="150"/>
                 <TableColumn fx:id="stagedPartName" text="Part Name" minWidth="150"/>

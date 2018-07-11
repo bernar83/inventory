@@ -61,7 +61,7 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TableColumn<Part, Double> partPrice;
     @FXML
-    private TableView<Part> stagedParts;
+    private TableView<Part> stagedPartsTable;
     @FXML
     private TableColumn<Part, Integer> stagedPartId;
     @FXML
@@ -79,6 +79,11 @@ public class ModifyProductController implements Initializable {
     }
     
     @FXML
+    private void updateStagedPartsTable() {
+        stagedPartsTable.setItems(stagedparts);
+    }
+    
+    @FXML
     public void openModProduct(Product product) {
         productId.setText(Integer.toString(product.getProductId()));
         productName.setText(product.getName());
@@ -86,6 +91,8 @@ public class ModifyProductController implements Initializable {
         productPrice.setText(Double.toString(product.getPrice()));
         productMax.setText(Integer.toString(product.getMax()));
         productMin.setText(Integer.toString(product.getMin()));
+        stagedparts = product.getParts();
+        updateStagedPartsTable();
     }
     
     @FXML
@@ -93,7 +100,7 @@ public class ModifyProductController implements Initializable {
         Part selectedPart = partsTable.getSelectionModel().getSelectedItem();
         
         stagedparts.add(selectedPart);
-        stagedParts.setItems(stagedparts);
+        stagedPartsTable.setItems(stagedparts);
     }
     
     @FXML

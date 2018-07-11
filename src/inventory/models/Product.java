@@ -36,6 +36,10 @@ public class Product {
         this.max = new SimpleIntegerProperty();
     }
     
+    public ObservableList<Part> getParts() {
+        return this.parts;
+    }
+    
     public void setName(String name) {
         this.name.set(name); 
     }
