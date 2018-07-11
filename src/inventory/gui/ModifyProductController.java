@@ -119,6 +119,30 @@ public class ModifyProductController implements Initializable {
     }
     
     @FXML
+    private void saveModProduct(ActionEvent event) throws IOException {
+        String productNameField = productName.getText();
+        int productInvField = Integer.parseInt(productInv.getText());
+        double productPriceField = Double.parseDouble(productPrice.getText());
+        int productMaxField = Integer.parseInt(productMax.getText());
+        int productMinField = Integer.parseInt(productMin.getText());
+        int productIdField = Integer.parseInt(productId.getText());
+        
+        Product product = new Product();
+        product.setInStock(productInvField);
+        product.setMax(productMaxField);
+        product.setMin(productMinField);
+        product.setName(productNameField);
+        product.setPrice(productPriceField);
+        product.setProductID(productIdField);
+        for (int i = 0; i < stagedPartsTable.getItems().size(); i++) {
+            Part stagedPart = stagedPartsTable.getItems().get(i);
+            product.addAssociatedPart(stagedPart);
+        }
+        Inventory.updateProduct(productIdField, product);
+        closeModProduct(event);
+    }
+    
+    @FXML
     private void closeModProduct(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainScreen.fxml"));

@@ -62,10 +62,10 @@ public class Inventory {
         return product;
     }
     
-    public void updateProduct(int id, Product product) {
-        for (int i = 0; i < this.products.size(); i++) {
-            if (this.products.get(i).getProductId() == id) {
-                this.products.set(i, product);
+    public static void updateProduct(int id, Product product) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getProductId() == id) {
+                products.set(i, product);
             }
         }
     }

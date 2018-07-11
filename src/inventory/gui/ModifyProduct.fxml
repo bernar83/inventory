@@ -77,7 +77,7 @@
         </HBox>
         
         <HBox alignment="baseline_right" spacing="10">
-            <Button text="Save"/>
+            <Button text="Save" onAction="#saveModProduct"/>
             <Button text="Cancel" fx:id="closeModProductBtn" onAction="#closeModProduct"/>
         </HBox>
     </VBox>
