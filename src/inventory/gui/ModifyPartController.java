@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,10 +22,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -125,11 +129,6 @@ public class ModifyPartController implements Initializable {
             Inventory.updatePart(partIdField, outsourcedPart);
         }
         
-        closeModPart(event);
-    }
-    
-    @FXML
-    private void closeModPart(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainScreen.fxml"));
         Parent mainPageParent = loader.load();
@@ -137,6 +136,26 @@ public class ModifyPartController implements Initializable {
         Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         eventStage.setScene(mainPageScene);
         eventStage.show();
+    }
+    
+    @FXML
+    private void closeModPart(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.initModality(Modality.NONE);
+        alert.setTitle("Part Cancel Confirmation");
+        alert.setHeaderText("Confirm cancel of modification");
+        alert.setContentText("Are you sure you want to cancel modifying?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("MainScreen.fxml"));
+            Parent mainPageParent = loader.load();
+            Scene mainPageScene = new Scene(mainPageParent);
+            Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            eventStage.setScene(mainPageScene);
+            eventStage.show();
+        }  
     }
 
     /**
