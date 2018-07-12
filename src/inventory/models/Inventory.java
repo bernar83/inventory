@@ -78,6 +78,10 @@ public class Inventory {
         return allParts.remove(part);
     }
     
+    public static boolean deleteProduct(Product product) {
+        return products.remove(product);
+    }
+    
     public static ObservableList<Part> lookupPart(int id) {
         ObservableList<Part> searchedParts = FXCollections.observableArrayList();
         
