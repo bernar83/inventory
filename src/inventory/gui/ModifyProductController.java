@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -152,19 +154,34 @@ public class ModifyProductController implements Initializable {
                 product.addAssociatedPart(stagedPart);
             }
             Inventory.updateProduct(productIdField, product);
-            closeModProduct(event);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("MainScreen.fxml"));
+            Parent mainPageParent = loader.load();
+            Scene mainPageScene = new Scene(mainPageParent);
+            Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            eventStage.setScene(mainPageScene);
+            eventStage.show();
         }
     }
     
     @FXML
     private void closeModProduct(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MainScreen.fxml"));
-        Parent mainPageParent = loader.load();
-        Scene mainPageScene = new Scene(mainPageParent);
-        Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        eventStage.setScene(mainPageScene);
-        eventStage.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.initModality(Modality.NONE);
+        alert.setTitle("Product Cancel Confirmation");
+        alert.setHeaderText("Confirm cancel of modification");
+        alert.setContentText("Are you sure you want to cancel modifying?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("MainScreen.fxml"));
+            Parent mainPageParent = loader.load();
+            Scene mainPageScene = new Scene(mainPageParent);
+            Stage eventStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            eventStage.setScene(mainPageScene);
+            eventStage.show();
+        }
     }
 
     /**
