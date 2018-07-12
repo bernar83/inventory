@@ -21,11 +21,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -117,12 +119,21 @@ public class AddProductController implements Initializable {
         product.setName(productNameField);
         product.setPrice(productPriceField);
         product.setProductID(productId);
-        for (int i = 0; i < stagedPartsTable.getItems().size(); i++) {
-            Part stagedPart = stagedPartsTable.getItems().get(i);
-            product.addAssociatedPart(stagedPart);
+        if (stagedPartsTable.getItems().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initModality(Modality.APPLICATION_MODAL);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please select a part from the existing list to the product"); 
+            alert.showAndWait();
         }
-        Inventory.addProduct(product);
-        closeAddProduct(event);
+        else {
+            for (int i = 0; i < stagedPartsTable.getItems().size(); i++) {
+                Part stagedPart = stagedPartsTable.getItems().get(i);
+                product.addAssociatedPart(stagedPart);
+            }
+            Inventory.addProduct(product);
+            closeAddProduct(event);
+        }
     }
     
     @FXML
